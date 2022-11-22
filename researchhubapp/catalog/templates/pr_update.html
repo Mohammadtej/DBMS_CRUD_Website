@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor update</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'form_style.css'%}">
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li style="font-weight:800">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+          <h1 class="heading">Professor Update</h1>
+          <p>Professor ID: <input type="number" name="professorID" id="number" required></p>
+          <hr><hr>
+          <h2 class="heading">Professor Information</h2>
+        
+        <p>Email: <input type="email" name="email" id="email" required></p>
+        <p>Password: <input type="password" name="password" id="password" required></p>
+    
+        <hr><hr>
+        <p>First Name: <input type="text" name="firstName" required placeholder="enter your First name here" required /></p>
+        <p>Middle Name: <input type="text" name="middleName" required placeholder="enter your Middle name here" required/></p>
+        <p>Last Name: <input type="text" name="lastName" required placeholder="enter your Last name here" required /></p>
+        <hr><hr>
+
+        <p>Highest Degree: <input type="degree" name="degree" id="degree" required></p>
+        <p>University ID: <input type="number" name="universityID" id="number" required></p>
+        <p>Website Link: <input type="text" name="websiteLink" id="url"></p>
+
+        <p><input type="submit" value="Submit"></p>
+        </form>
+    </div>
+</body>
+</html>

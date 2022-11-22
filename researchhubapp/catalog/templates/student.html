@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+      }
+      :root {
+        --border: rgb(255, 0, 0);
+      }
+
+      /* headings */
+      h1 {
+        color: rgb(24, 50, 72);
+        display: block;
+        background-color: rgb(255, 255, 255);
+        font-weight: bolder;
+        font-size: 50px;
+        border: var(--border) solid;
+        border-radius: 9px;
+        padding: 10px;
+        margin: 25px;
+        text-align: center;
+      }
+      h2 {
+        color: rgb(24, 50, 72);
+        width: 200px;
+        background-color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-size: 34px;
+        border: var(--border) solid;
+        padding: 3px;
+        margin: 25px 110px;
+        text-align: center;
+        border-radius: 9px;
+        text-align: center;
+      }
+      h3 {
+        color: rgb(24, 50, 72);
+        display: block;
+        background-color: rgb(255, 255, 255);
+        width: 530px;
+        font-weight: 100;
+        font-size: 34px;
+        border: var(--border) solid;
+        border-radius: 9px;
+        padding: 10px;
+        margin: 90px 150px 25px 150px;
+        text-align: center;
+      }
+
+      /* navigation panel */
+      #navbar {
+        display: flex;
+        position: relative;
+        text-align: center;
+      }
+      #navbar h4 {
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        font-size: 25px;
+        border: var(--border) solid;
+        padding: 6px 6px;
+        margin: 9px 9px;
+        width: 70px;
+        text-align: center;
+      }
+      #navbar ul {
+        display: flex;
+        padding: 3px 3px;
+        margin: 6px 6px;
+        border-radius: 6px;
+        text-align: center;
+      }
+      #navbar ul li {
+        background-color: black;
+        list-style: none;
+        font-weight: bold;
+        font-size: 1.3rem;
+        border: var(--border) solid 3px;
+        border-radius: 3px;
+        text-align: center;
+      }
+      #navbar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        font-weight: bolder;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        padding: 12px;
+        margin: -3px 15px;
+        text-align: center;
+      }
+      #navbar ul li a:hover {
+        color: var(--border);
+        background-color: black;
+        text-align: center;
+      }
+
+      
+      img {
+          width: 50%;
+          padding: 25px 25px;
+          border-radius: 25px;
+          margin-right: 150px;
+          margin-top: 120px;
+          display: none;
+      }
+
+      body {
+          /*background: url(cake_photos/display1.PNG);*/
+          animation-name: priyanshu;
+          animation-duration: 15s;
+          animation-iteration-count: infinite;
+      }
+
+          @keyframes priyanshu {
+              0%,100%{
+              /*background: url(cake_photos/display1.PNG);*/
+              {% load static %}
+                background-image: url({% static '2987_1_000_N326_academic-hub-scaled.jpg' %});
+                }
+          }
+
+    </style>
+</head>
+<body>
+  
+  <h1>Role: Student</h1>
+
+  <h3> What change do you want to perform: </h3>
+  <nav class="navigation">
+    <ul class="Role">
+      <li><a href="{% url 'studentInsert' %}" target="_blank"><h2>Insert</h2></a></li>
+      <li><a href="{% url 'studentUpdate' %}" target="_blank"><h2>Update</h2></a></li>
+      <li><a href="{% url 'studentDelete' %}" target="_blank"><h2>Delete</h2></a></li>
+      <li><a href="{% url 'showStudentDetails' %}" target="_blank"><h2>Show Data</h2></a></li>
+    </ul>
+  </nav>
+  <div class="img">
+      <img src="2987_1_000_N326_academic-hub-scaled.jpg" alt="image not found">
+  </div>
+</body>
+</html>

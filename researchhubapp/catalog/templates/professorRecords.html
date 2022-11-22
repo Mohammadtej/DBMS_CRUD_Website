@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Hub website</title>
+    <style>
+        body {
+            background-color: rgb(245, 245, 220);
+        }
+        :root {
+            --border: rgb(255, 255, 255);
+        }
+        .head{
+            color: rgb(24, 50, 72);
+            display: block;
+            background-color: rgb(255, 255, 255);
+            width: auto;
+            font-size: 50px;
+            font-weight: bolder;
+            border: var(--border) solid;
+            border-radius: 50px;
+            padding: 10px;
+            margin: 20px 150px 25px 150px;
+            text-align: center;
+        }
+        .heading{
+            color: rgb(24, 50, 72);
+            display: block;
+            background-color: rgb(255, 255, 255);
+            width: auto;
+            font-size: 50px;
+            font-weight: bolder;
+            border: var(--border) solid;
+            border-radius: 50px;
+            padding: 10px;
+            margin: 20px 150px 25px 150px;
+            text-align: center;
+        }
+        .table{
+            margin-left: auto;  
+            margin-right: auto;  
+            text-align: center;
+        }
+        .trs th{
+            color: rgb(24, 50, 72);
+            font-weight: bolder;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            width: 160px;
+            border: 5px;
+            border-width: thick;
+            padding: 7px;
+            border-radius: 25px;
+        }
+        .p{
+            color: rgb(24, 50, 72);
+            font-weight: bolder;
+            font-size: 28px;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            width: 160px;
+            border: 5px;
+            border-width: thick;
+            padding: 7px;
+            border-radius: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .submit{
+            color: rgb(24, 50, 72);
+            font-weight: bolder;
+            font-size: 28px;
+            text-align: center;
+            width: 160px;
+            border: 5px;
+            border-width: thick;
+            padding: 7px;
+            border-radius: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .trs td{
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            width: 160px;
+            border: 5px;
+            border-width: thick;
+            padding: 7px;
+            border-radius: 25px;
+        }
+        .tr_td{
+            display: block;
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            width: 160px;
+            font-weight: bolder;
+            border-width: thick;
+            border-radius: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type="submit"]{
+            width: 100px;
+            background-color: steelblue;
+            padding: 12px 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+          <h3 class="heading">Select attribute to sort with</h3>
+          <p class="p">Attributes:</p>
+          
+          <p>
+            <p class="tr_td"><input type="radio" id="professorID" name="sortParameter" value="ProfessorID">
+                <label for="professorID">Ascending Professor ID</label><br></p>
+            <p class="tr_td"><input type="radio" id="firstName" name="sortParameter" value="FirstName">
+                <label for="firstName">Ascending First Name</label><br></p>
+            <p class="tr_td"><input type="radio" id="universityName" name="sortParameter" value="Name">
+                <label for="universityName">Ascending University Name</label><br></p>
+            <p class="tr_td"><input type="radio" id="followers" name="sortParameter" value="Followers DESC">
+                <label for="followers">Descending Followers</label><br></p>
+          </p>
+
+        <p class="submit"><input type="submit" value="Submit"></p>
+        </form>
+    </div>
+
+    <hr><hr><hr>
+
+    <h3 class="head">
+        Displaying Professor records
+    </h3>
+
+    <table class="table">
+        <tr class="trs">
+            <th>Professor ID</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Highest Degree</th>
+            <th>University Name</th>
+            <th>Followers</th>
+            <th>Website link</th>
+        </tr>
+        {% for res in data %}
+        <tr class="trs">
+            <td>{{res.0}}</td>
+            <td>{{res.1}}</td>
+            <td>{{res.2}}</td>
+            <td>{{res.3}}</td>
+            <td>{{res.4}}</td>
+            <td>{{res.5}}</td>
+            <td>{{res.6}}</td>
+            <td>{{res.7}}</td>
+            <td>{{res.8}}</td>
+            <td>{{res.9}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
